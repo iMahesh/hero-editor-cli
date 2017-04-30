@@ -1,3 +1,6 @@
 > One app component can export as many classes as it can. 
 > [(ngModel)] is the Angular syntax to bind the hero.name property to the textbox. Data flows in both directions: from the property to the textbox, and from the textbox back to the property.
-> 
+> To transfer data from parent-component(app-component) to child-component(hero-detaail component)
+    > use child selector(<hero-deatil></hero-detail>) in parent template
+    > use [toChild]="parentData" (<hero-deatil [hero]="selectedHero"></hero-detail>)
+    > receive data in child using @input in child component as a property (@input() hero:Hero)
