@@ -4,3 +4,11 @@
     > use child selector(<hero-deatil></hero-detail>) in parent template
     > use [toChild]="parentData" (<hero-deatil [hero]="selectedHero"></hero-detail>)
     > receive data in child using @input in child component as a property (@input() hero:Hero)
+>Using services and dependency injection
+    > Create a service (hero.service.ts) with a method getHeroes() which returns a promise of hero array(Hero[]). (getHeroes():Promise<Hero[]>{return Promise.resolve(HEROES)})
+    > Use the service in a root component(app.component) and provide the service in meta-data (providers:[HeroService])
+    > Create a constructor in app copmonent(Dependency Injection) class with a private variable (contructor(private _heroService:HeroService))
+    > Write a method(getHeroes()) in app component which assigns list of heroes returned from promise provided by service (getHeroes():void{this._heroService.getHeroes().then(heroes=>this.heroes=heroes)})
+    > Invoke getHeroes() method from ngOnInit lifecycle hook (ngOnInit():void{this.getHeroes();})
+    > Avoid Providing service in multiple components. Provide the service in root/parent component and inject it in rest of the child components.
+
